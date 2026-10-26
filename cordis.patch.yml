@@ -1,0 +1,6 @@
+# Adds the capture-to-print host plugin. The plugin links the bundled skill into
+# $DSH_HOME/skills and the package root into $CAPTURE_TO_PRINT_HOME/app; it does
+# not install OpenSCAD, Python packages, or run CAD itself.
+- insert:
+    - id: capture-to-print
+      name: 'capture-to-print'

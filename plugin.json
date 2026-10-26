@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "capture-to-print",
+  "version": "0.2.0",
+  "description": "Generate editable OpenSCAD from confirmed measurements and build, measure, preview, and package traceable draft parts.",
+  "author": {
+    "name": "capture-to-print contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cad",
+    "openscad",
+    "3d-printing"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "capture-to-print",
+        "shortDescription": "Measured CAD with previews",
+        "longDescription": "Measurement-driven OpenSCAD workflow: editable source, hash-bound contract, mesh measurements, four actual-mesh previews and a traceable draft bundle. Ships as a DeepSeek Harness bundle and a Codex plugin over the same local runner. Requires Python 3.11, OpenSCAD and fontconfig; no hosted execution or paid API.",
+        "developerName": "capture-to-print contributors",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg",
+        "defaultPrompt": [
+          "Build and check the unchanged plant-label fixture.",
+          "Help turn my photo and measurements into editable OpenSCAD."
+        ]
+      }
+    }
+  }
+}

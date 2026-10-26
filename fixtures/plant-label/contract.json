@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "plant-label",
+  "units": "mm",
+  "source_sha256": "c4a60cf4b5a093bbc0a0b1162b03608d7101027e495cccc394cc965d8a67f1e9",
+  "font_pattern": "Work Sans:style=Bold",
+  "expected_components": 1,
+  "dimensions": [
+    {"id": "head_width", "method": "bbox_extent", "axis": 0, "expected_mm": 48, "tolerance_mm": 0.1},
+    {"id": "overall_length", "method": "bbox_extent", "axis": 1, "expected_mm": 100.05, "tolerance_mm": 0.1},
+    {"id": "embossed_total_thickness", "method": "bbox_extent", "axis": 2, "expected_mm": 2.6, "tolerance_mm": 0.1},
+    {"id": "stake_width_at_y40", "method": "plane_span", "axis": 0, "plane_axis": 1, "plane_offset_mm": 40, "expected_mm": 10, "tolerance_mm": 0.1},
+    {"id": "stake_thickness_at_y40", "method": "plane_span", "axis": 2, "plane_axis": 1, "plane_offset_mm": 40, "expected_mm": 2, "tolerance_mm": 0.1}
+  ],
+  "notes": "Preserve original Basil label, parameters and coordinate frame. The tip extends to Y=-0.05 mm; the base spans Z=-1..1 mm. Tolerance is computational, not a printer fit allowance. No printer profile or bed placement is selected."
+}

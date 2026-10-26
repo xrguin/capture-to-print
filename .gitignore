@@ -1,0 +1,9 @@
+# generated runs, local runtimes and caches
+output/
+runs/
+.venv/
+.tmp-runtime/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store

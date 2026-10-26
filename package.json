@@ -1,0 +1,53 @@
+{
+  "name": "capture-to-print",
+  "version": "0.2.0",
+  "description": "Measured OpenSCAD parts with checks, previews and a traceable review bundle. Ships a DeepSeek Harness bundle and a Codex plugin over the same local runner.",
+  "type": "module",
+  "main": "lib/index.mjs",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "skills",
+    "scripts",
+    "assets",
+    "fixtures",
+    "docs",
+    "plugin.json",
+    "cordis.patch.yml",
+    "install-dsh.sh",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "doctor": "python3 scripts/doctor.py",
+    "test": "node --test tests/*.mjs",
+    "test:workflow": "python3 -m unittest discover -s tests"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "codex-plugin",
+    "cad",
+    "openscad",
+    "3d-printing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xrguin/capture-to-print.git"
+  },
+  "homepage": "https://github.com/xrguin/capture-to-print",
+  "author": "capture-to-print contributors"
+}
