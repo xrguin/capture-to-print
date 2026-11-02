@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "capture-to-print": {
+      "type": "stdio",
+      "command": "/bin/sh",
+      "args": [
+        "${PLUGIN_ROOT}/scripts/launch-mcp.sh"
+      ],
+      "cwd": "./",
+      "env": {
+        "CAPTURE_TO_PRINT_DATA_DIR": "${PLUGIN_DATA}/projects"
+      }
+    }
+  }
+}

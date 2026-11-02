@@ -1,0 +1,226 @@
+{
+  "version": "0.4.0-alpha.1",
+  "scope": "Codex desktop alpha source/runtime files; excludes private outputs and dependencies",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 73,
+      "sha256": "180d8040494c339ef2296a64b6a84d82576bf24fe874141fa90e014d6c9a21da"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1495,
+      "sha256": "40188ac128b503cc25edd33936b5ff800b91ad0b4e4c0eb2e41f3565bcd5d495"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1086,
+      "sha256": "fa3c3f457be1f92805fa61d30ba4cdffbb8c847ca84873eff814c8b4422f0fd4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2820,
+      "sha256": "456568db2db1c12b6bdf3e8c030def9319a87bd541898235868a1ec8dd4dcb3e"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1876,
+      "sha256": "2b348db518d6980bac87d4e61488b6c0e8378f7c0a89c94a5dfa0cf6023313e6"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "bytes": 4396,
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    },
+    {
+      "path": "assets/fonts/WorkSans-Bold.ttf",
+      "bytes": 227648,
+      "sha256": "e32ca4477095e3b259915d3db0b2acd1091e9d142706a54ba3eb2dcc54184c41"
+    },
+    {
+      "path": "assets/fonts/provenance.json",
+      "bytes": 698,
+      "sha256": "e87be3a69589de466dfab5cb8dd4144c190d6c8ffbae3b8bd5cfee2af10b3662"
+    },
+    {
+      "path": "assets/icon.svg",
+      "bytes": 378,
+      "sha256": "4c3f22972a2b98a313376d737b764aa6e31c4b21ad7f55e7c075349867a095e6"
+    },
+    {
+      "path": "dist/THIRD_PARTY_LICENSES.txt",
+      "bytes": 51732,
+      "sha256": "c7cce9d92dfefb8cdb843f4b2fdafa3b62c65147d0951acf51399d82572efc42"
+    },
+    {
+      "path": "dist/server.mjs",
+      "bytes": 1382438,
+      "sha256": "e8e154b359f52ff71ab706e2e742ce2090cb22ba7a159a890b9779bc8c3ed60b"
+    },
+    {
+      "path": "dist/workbench.html",
+      "bytes": 685455,
+      "sha256": "044ec326a33a4dc727fb9c3a4881272cd9fecdf2be88480978899a2034a118ea"
+    },
+    {
+      "path": "docs/FIVE_FILE_REVISIONS.md",
+      "bytes": 2871,
+      "sha256": "bda0f8923c7357e584c18abb6e7aaeb1475823d0a7fddafb02cbc067c39b620d"
+    },
+    {
+      "path": "docs/PARAMETRIC_RELEASE.md",
+      "bytes": 773,
+      "sha256": "2c4f486b36c97b0e0737e0cc4289cbd182e520179f82100d177fd07def17d7b8"
+    },
+    {
+      "path": "docs/UI_VALIDATION.md",
+      "bytes": 2537,
+      "sha256": "4ff791aae72d0345d65ea7dd23c871992f117baa2b8e71069115de4efc77a055"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "bytes": 5611,
+      "sha256": "35da9f923450ac7238ced454f90617118cdc7e33bb74be7be5f6ab17f623b8e3"
+    },
+    {
+      "path": "fixtures/plant-label/contract.json",
+      "bytes": 1119,
+      "sha256": "b45cb9ff5f5d31a88692fcf4f6f6d521c96ed9c8a30f5c3a04a437cef3714a43"
+    },
+    {
+      "path": "fixtures/plant-label/design.scad",
+      "bytes": 3999,
+      "sha256": "c4a60cf4b5a093bbc0a0b1162b03608d7101027e495cccc394cc965d8a67f1e9"
+    },
+    {
+      "path": "mcp.json",
+      "bytes": 358,
+      "sha256": "2578e40c4b5ac4cfacdd88d4381c9e66c3331be45b1a1dbe45e4bc873ccd768e"
+    },
+    {
+      "path": "mcp/server.mjs",
+      "bytes": 5322,
+      "sha256": "6180b648dac05e4c7dfd6b627b6dc84643019397f4b3dcda2aa2415cd02928ef"
+    },
+    {
+      "path": "mcp/store.mjs",
+      "bytes": 14142,
+      "sha256": "a0bb21840f7ab89e6149adf5080e967dc9926ca624ff42749e7f9290982374ff"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 59819,
+      "sha256": "27d3f79fc5590f6eb0a8b3149e42f518297e8b851063f1741eae57b309bc9ff9"
+    },
+    {
+      "path": "package.json",
+      "bytes": 460,
+      "sha256": "30dbe9ce4427dbc4afd9aed6f9226227a5f297f2ecefe6386bdf53c5bb282206"
+    },
+    {
+      "path": "plugin.json",
+      "bytes": 1484,
+      "sha256": "a72498371d621273fa119159b64e28fd2c7920323d05f464f4db9a96bf159a6a"
+    },
+    {
+      "path": "scripts/build-ui.mjs",
+      "bytes": 2072,
+      "sha256": "1f9b6d56219e0c45d0d371976574c58c4352754911ecf031ec2012f9de67bf0a"
+    },
+    {
+      "path": "scripts/capture_to_print.py",
+      "bytes": 40496,
+      "sha256": "b59dca528ce286bfa74ce472aa8b83116e2e801c5ec35a63a5ee8f52e7e5e057"
+    },
+    {
+      "path": "scripts/launch-mcp.sh",
+      "bytes": 1602,
+      "sha256": "abf118430959604e2a31750fc498e25b55136d1c62a107d95f016127dfdd4f54"
+    },
+    {
+      "path": "scripts/package_parametric.py",
+      "bytes": 8667,
+      "sha256": "67e3e02b26f7370873c8d84c9f928e78849fe8dc3ce9200bc080d1c8673cb5ae"
+    },
+    {
+      "path": "scripts/requirements.txt",
+      "bytes": 69,
+      "sha256": "576c683f18fb700644e6a7bd5900b789357ce2a7ddccb5be0cb0c96267adfcac"
+    },
+    {
+      "path": "scripts/setup-runtime.sh",
+      "bytes": 1078,
+      "sha256": "dde92606d0c6ab0338cb9c4ddd305ff2a9923c9d1d5d1f6cf806ff1598aceb61"
+    },
+    {
+      "path": "scripts/verify-source.py",
+      "bytes": 888,
+      "sha256": "b93800ab2060e98a3aa15cd6532bb3c2d00389ca99accb731acdb353c998a3ab"
+    },
+    {
+      "path": "skills/capture-to-print/SKILL.md",
+      "bytes": 8376,
+      "sha256": "a6c3e2b0d1884629fb8e6f5c1a10a001079156d59d513a778a550c2f29d523bc"
+    },
+    {
+      "path": "skills/capture-to-print/references/cad-rules.md",
+      "bytes": 4825,
+      "sha256": "ded2b95f02af3c005b7645db8be0ee70e8d343f193623594a031f16ad3e04db0"
+    },
+    {
+      "path": "skills/capture-to-print/references/parametric-export.md",
+      "bytes": 4347,
+      "sha256": "f2af872c68c6563ace34a83f8bce3aed718b0b921110f8573df28818e8984e83"
+    },
+    {
+      "path": "skills/capture-to-print/references/parametric.md",
+      "bytes": 3371,
+      "sha256": "d064a939335f82e8a1be48122f1bcf10cfdb5c9a94a192d5280546dc2583165e"
+    },
+    {
+      "path": "skills/capture-to-print/references/workflow.md",
+      "bytes": 7077,
+      "sha256": "46f5beea169f27506d7be393d2dc6a79231541ed43ca34224ef69fcf059bdc88"
+    },
+    {
+      "path": "tests/harness-host.mjs",
+      "bytes": 1506,
+      "sha256": "9781da777d044719317beb7bd4ed9f38edeaa4a83aecb53df86061c0a2122d5d"
+    },
+    {
+      "path": "tests/harness-server.mjs",
+      "bytes": 2843,
+      "sha256": "e2c5f7e4f7d96dc4b7d27f357d9f2135a489a451bfa28f32f053dd2a9d368960"
+    },
+    {
+      "path": "tests/native-regression.mjs",
+      "bytes": 3994,
+      "sha256": "cb7ada4216c4210f64c767dd9e7bf2512b203774c468af6f3ef1555405fd19d4"
+    },
+    {
+      "path": "tests/test_parametric.py",
+      "bytes": 2795,
+      "sha256": "408affddf2d63e9cb781b4d7c6444f2afaa06984e87d9af2433e4dd63c08e3b2"
+    },
+    {
+      "path": "tests/test_workflow.py",
+      "bytes": 16525,
+      "sha256": "d033a2f442506f92b91a46ac3b3ba438302e7285d9773a02c641aa203e479a26"
+    },
+    {
+      "path": "tests/ui-server.test.mjs",
+      "bytes": 11490,
+      "sha256": "46629e13469316488b43e5386784fa87d8693c0ab4816b59ed951c15ae99688d"
+    },
+    {
+      "path": "ui/app.mjs",
+      "bytes": 13176,
+      "sha256": "33c5daae8faed808a811d0117ed1162e8dc50a1968333777575194ae6c207593"
+    },
+    {
+      "path": "ui/workbench.html",
+      "bytes": 10236,
+      "sha256": "9f9533c652a9785fff5073ca79b3c384d1d304cd67c0df9f0418a8424b6da93b"
+    }
+  ]
+}

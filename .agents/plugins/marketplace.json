@@ -1,0 +1,20 @@
+{
+  "name": "capture-to-print-alpha",
+  "interface": {
+    "displayName": "capture-to-print alpha"
+  },
+  "plugins": [
+    {
+      "name": "capture-to-print",
+      "source": {
+        "source": "local",
+        "path": "./plugins/capture-to-print"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

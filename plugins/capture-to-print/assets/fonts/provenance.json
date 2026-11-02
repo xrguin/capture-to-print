@@ -1,0 +1,19 @@
+{
+  "upstream_commit": "b35c81086186162164947bd39574683073d9b268",
+  "license": "OFL-1.1",
+  "modified": false,
+  "files": [
+    {
+      "path": "WorkSans-Bold.ttf",
+      "url": "https://raw.githubusercontent.com/weiweihuanghuang/Work-Sans/b35c81086186162164947bd39574683073d9b268/fonts/ttf/WorkSans-Bold.ttf",
+      "bytes": 227648,
+      "sha256": "e32ca4477095e3b259915d3db0b2acd1091e9d142706a54ba3eb2dcc54184c41"
+    },
+    {
+      "path": "OFL.txt",
+      "url": "https://raw.githubusercontent.com/weiweihuanghuang/Work-Sans/b35c81086186162164947bd39574683073d9b268/OFL.txt",
+      "bytes": 4396,
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    }
+  ]
+}

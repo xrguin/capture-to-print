@@ -1,112 +1,105 @@
 # capture-to-print
 
-Measured OpenSCAD parts with checks, previews and a traceable review bundle — as a **DeepSeek Harness (DSH) bundle** that also carries the same skill and runner a Codex plugin uses.
+**Public desktop alpha:** turn reference images and confirmed measurements into
+editable parametric OpenSCAD, an STL, dimension checks and actual-mesh previews.
+Your existing host model authors the CAD; local tools build and check it. No
+separate model API, automatic slicing or printer dispatch is included.
 
-The host model writes the `.scad` from your photo and confirmed measurements. A local Python runner exports the STL with OpenSCAD, measures declared dimensions, renders four actual-mesh previews and packages the exact revision. Nothing is uploaded, and there is no model API client, paid service, printer dispatch or automatic approval.
+| Surface | Included | Status |
+|---|---|---|
+| Codex desktop / CLI | Embedded brief/review panel, MCP tools, core 0.4.0 | Alpha 0.4.0-alpha.1; tested on macOS Apple Silicon |
+| DeepSeek Harness | Existing root bundle and CLI core 0.2.0 | Legacy adapter preserved; distinct capabilities |
+| Ordinary ChatGPT iPhone chat | Full photo-to-checked-STL workflow | Required next feature; **not implemented** |
+
+This is a GitHub-distributed alpha, not an approved listing in OpenAI's public
+plugin directory. Read [known issues](docs/KNOWN_ISSUES.md),
+[phone requirements](docs/PHONE.md) and [release notes](CHANGELOG.md).
+
+## Install the Codex alpha
+
+Requirements: Node.js 22+, Python 3.11, OpenSCAD with binary STL export, and
+fontconfig (`fc-match`). Install these through their official distributions or
+your OS package manager. Python wheels are pinned; JavaScript runtime bundles
+are included, so users do not need `npm install` or an npm account.
+
+```sh
+git clone --branch v0.4.0-alpha.1 https://github.com/xrguin/capture-to-print.git
+cd capture-to-print
+sh plugins/capture-to-print/scripts/setup-runtime.sh --smoke
+codex plugin marketplace add xrguin/capture-to-print --ref v0.4.0-alpha.1
+codex plugin add capture-to-print@capture-to-print-alpha
+```
+
+Read the setup output. `--smoke` builds the unchanged Basil plant label and should
+finish at `awaiting_user_review`, with 48 × 100.05 × 2.6 mm extents. It does not
+print anything. On the tested Mac, OpenSCAD/graphics need normal native execution;
+a restricted agent sandbox caused a Qt startup crash in earlier tests.
+
+Start a fresh Codex chat, enable capture-to-print and say:
+
+> Open the capture-to-print panel. Help me turn a photo and measured dimensions
+> into an editable parametric model. Ask about missing fit-critical measurements
+> before generating CAD.
+
+CLI marketplaces are separate from installed activation. If the picker is stale,
+reload the desktop app/start a fresh chat. This does not upgrade an existing
+private installation automatically. The launcher finds the versioned runtime
+created by setup. Set `CAPTURE_TO_PRINT_NODE` or `CAPTURE_TO_PRINT_PYTHON` to an
+explicit executable when needed; see [plugin setup](plugins/capture-to-print/README.md).
+
+## Workflow
 
 ```mermaid
 flowchart LR
-    A[Photo + measured dimensions] --> B[Host model + CAD rules]
-    B --> C[Editable SCAD + agreed checks]
-    C --> D[Local OpenSCAD + Python runner]
-    D --> E[Measured STL + four previews]
-    E --> F[Draft bundle + your review]
-    F --> G[Manual Bambu Studio slicing]
+ A[Reference images + confirmed measurements] --> B[Host model + CAD rules]
+ B --> C[Editable parametric SCAD + declared checks]
+ C --> D[OpenSCAD export + Python geometry checks]
+ D --> E[Actual-STL preview + review]
+ E --> F[Manual Bambu Studio slicing]
+ F --> G[User print + physical feedback]
 ```
 
-## Requirements
+Each successful Codex revision keeps five files: `design.scad`,
+`design-contract.json`, `part.stl`, `preview.png`, and `revision.json`. A full
+rebuild ZIP is created only when explicitly requested. Changes need new checks;
+a passing mesh or slice does not establish fit, motion or print success.
 
-- DeepSeek Harness with the `desktop` (or `web`) profile.
-- Python 3.11, OpenSCAD, and fontconfig (`fc-match`) on the same machine.
-- Node.js 22+ is already part of DSH.
+Printer choice is a preference, not a Bambu connection. One self-contained SCAD
+part is supported per build. Named Customizer controls are real editable source;
+nondefault settings and MakerWorld execution require separate checks.
 
-OpenSCAD and fontconfig are system packages; the Python wheels are installed by `scripts/bootstrap.sh`. The plugin does not install either for you.
+## iPhone / ordinary ChatGPT chat
 
-## Install
+That is the intended phone workflow. The local stdio MCP server cannot run in
+ordinary mobile chat. A remote CAD backend, authentication/user isolation,
+submission access and an actual phone test are required. No hosted service or
+extra spending is enabled by this release. See [the concrete next increment](docs/PHONE.md).
 
-1. In DSH open **Plugins → Add plugin** and paste `https://github.com/xrguin/capture-to-print`, or run:
+## DSH users
 
-   ```sh
-   dsh plugin --profile desktop add github:xrguin/capture-to-print
-   ```
+The existing root DSH package and tag v0.2.0 are preserved. Use the
+[DSH instructions](docs/DSH.md). The embedded Codex panel is not part of that
+adapter. Component versions/digests are recorded in `RELEASE.json`.
 
-   This repository is private for now, so the machine needs GitHub access (for example `gh auth setup-git`) before pnpm can fetch it.
+## Development and feedback
 
-2. Build the runtime once. The bundle links itself to a stable path on load:
-
-   ```sh
-   bash ~/.local/share/capture-to-print/app/scripts/bootstrap.sh --smoke
-   ```
-
-   That creates a venv, installs the pinned wheels, checks OpenSCAD/fontconfig, and builds the unchanged plant-label fixture once to prove the chain works. Omit `--smoke` to skip the build; set `CAPTURE_TO_PRINT_HOME` to relocate the runtime.
-
-3. Start a new DSH session and ask:
-
-   > Build and check the unchanged plant-label fixture.
-
-   The `capture-to-print` skill appears in the session skill catalog. If it does not, restart DSH — the catalog refreshes on session start (it refreshed live during testing, but that is not guaranteed).
-
-Manual alternative without the bundle: clone the repo and run `install-dsh.sh`, which links the skill into `~/.dsh/skills`.
-
-## What a run produces
-
-| Artifact | Purpose |
-| --- | --- |
-| `design.scad`, `design-contract.json` | Editable source and hash-bound expectations |
-| `parts/<name>.stl` | Unsliced mesh, coordinates in millimetres |
-| `checks.json` | Measured geometry, required results, unassessed properties |
-| `previews/` | Face, back, edge, oblique, contact sheet from that STL |
-| `build-record.json`, logs | Engine, dependencies, pinned font, diagnostics |
-| `review.json`, `state.json` | Exact revision; user acceptance stays pending |
-| `manifest.json`, `draft-bundle.zip` | File list, hashes, portable source and rebuild notes |
-
-The packaged fixture measures **48 × 100.05 × 2.6 mm**, with a **10 × 2 mm** straight stake section at Y = 40 mm. Its original SCAD is unchanged (SHA-256 `c4a60cf4b5a093bbc0a0b1162b03608d7101027e495cccc394cc965d8a67f1e9`), and Work Sans Bold is pinned rather than accepting a fontconfig fallback.
-
-## Commands
+The Codex plugin source/build/tests are under `plugins/capture-to-print/`:
 
 ```sh
-# doctor only
-python3 scripts/doctor.py
-
-# full runtime + fixture build
-bash scripts/bootstrap.sh --smoke
-
-# explicit runs
-.venv/bin/python scripts/capture_to_print.py build --source design.scad --contract contract.json --output-root ./runs
-.venv/bin/python scripts/capture_to_print.py verify ./runs/<run-directory>
+cd plugins/capture-to-print
+npm ci --ignore-scripts
+npm run build
+npm test
+python3.11 -m unittest discover -s tests -v
 ```
 
-`build` accepts one self-contained SCAD file up to 1 MiB and an STL up to 64 MiB, with per-stage timeouts. It has no model calls, no mesh repair, no scaling and no slicing.
+Use the GitHub Issues tab for a sanitized bug report. Include the version,
+OS/architecture, steps and expected/actual result. Check
+[known issues](docs/KNOWN_ISSUES.md) before reporting. Private photos, old models,
+benchmark recreations, project data, machine overlays and dependency environments
+are excluded from this repository release.
 
-## Limits
-
-The checker measures whole-mesh axis extents and section spans, plus basic mesh integrity. It does **not** certify wall thickness, holes/clearances, strength, slicer behaviour or physical fit. A part whose critical requirement cannot be expressed as a supported check should be rejected rather than approximated.
-
-A successful build means **awaiting user review**. Only your explicit acceptance of an exact revision and its hashes approves it; the agent's visual review is a separate record. STL has no unit metadata, so slicing, bed placement and printer profile remain manual.
-
-Photo input on desktop is a file (AirDrop, iCloud Drive, Files). There is no phone client, no hosted execution and no live camera capture in this package.
-
-## Layout
-
-```
-skills/capture-to-print/     SKILL.md, CAD rules, workflow/contract reference
-scripts/capture_to_print.py  export, measure, render, package, verify
-scripts/doctor.py            runtime checks and fix hints
-scripts/bootstrap.sh         venv + pinned wheels + optional fixture build
-fixtures/plant-label/        unchanged regression source and contract
-assets/fonts/                pinned Work Sans Bold, provenance, OFL
-lib/index.mjs                DSH plugin: links skill and app path
-plugin.json                  Codex plugin metadata over the same skill
-tests/                       Python workflow tests + Node link tests
-```
-
-## Tests
-
-```sh
-node --test tests/*.mjs                          # bundle link behaviour
-.venv/bin/python -m unittest discover -s tests   # runner regressions
-```
-
-## Licence
-
-MIT. Work Sans is licensed separately under the SIL Open Font License 1.1; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Code: MIT. The Work Sans font uses SIL OFL 1.1; bundled JavaScript notices remain
+included. Read [third-party notices](THIRD_PARTY_NOTICES.md) and the
+[local-alpha data flow](docs/DATA_FLOW.md). Runtime/Linux/phone compatibility is
+limited to the evidence in [validation](docs/ALPHA_VALIDATION.md).

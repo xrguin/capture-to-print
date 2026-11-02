@@ -10,8 +10,8 @@
 set -eu
 
 root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
-home=${CAPTURE_TO_PRINT_HOME:-$HOME/.local/share/capture-to-print}
-venv=$home/venv
+runtime_home=${CAPTURE_TO_PRINT_HOME:-$HOME/.local/share/capture-to-print}
+venv=$runtime_home/venv
 python=${PYTHON:-python3.11}
 smoke=0
 openscad_args=
@@ -41,7 +41,7 @@ if [ ! -f "$root/scripts/capture_to_print.py" ]; then
     exit 1
 fi
 
-mkdir -p "$home"
+mkdir -p "$runtime_home"
 if [ ! -x "$venv/bin/python" ]; then
     echo "==> creating venv at $venv"
     "$python" -m venv "$venv"
@@ -56,7 +56,7 @@ echo "==> checking the runtime"
 "$venv/bin/python" "$root/scripts/doctor.py" $openscad_args
 
 if [ "$smoke" -eq 1 ]; then
-    runs=$home/runs
+    runs=$runtime_home/runs
     mkdir -p "$runs"
     echo "==> building the unchanged plant-label fixture"
     "$venv/bin/python" "$root/scripts/capture_to_print.py" build --output-root "$runs"
@@ -65,6 +65,6 @@ fi
 cat <<EOF
 
 Runtime: $venv/bin/python
-Runner:  "$venv/bin/python" "$root/scripts/capture_to_print.py" build --output-root "$home/runs"
+Runner:  "$venv/bin/python" "$root/scripts/capture_to_print.py" build --output-root "$runtime_home/runs"
 Skill:   ask a DSH session to "build and check the unchanged plant-label fixture".
 EOF

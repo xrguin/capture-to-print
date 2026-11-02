@@ -1,0 +1,33 @@
+{
+  "version": "0.4.0-alpha.1",
+  "date": "2026-11-02",
+  "channel": "opt-in GitHub prerelease",
+  "previous_repository_commit": "935dbc8e3695f4fa2294d8240e666606cbb2e114",
+  "license": "MIT",
+  "components": {
+    "dsh": {
+      "version": "0.2.0",
+      "location": ".",
+      "core_sha256": "708035ead518507535c6c517c7058c27aa2993dd83836815470864b15b0e0e88"
+    },
+    "codex": {
+      "package_version": "0.4.0-alpha.1",
+      "runtime_version": "0.4.0",
+      "location": "plugins/capture-to-print",
+      "core_sha256": "b59dca528ce286bfa74ce472aa8b83116e2e801c5ec35a63a5ee8f52e7e5e057",
+      "package_manifest_sha256": "07ab7ea8ae5ab9cfc112ea0f6fe4576841814c614517a64517b83864611bda00"
+    }
+  },
+  "fixture_sha256": "c4a60cf4b5a093bbc0a0b1162b03608d7101027e495cccc394cc965d8a67f1e9",
+  "font_sha256": "e32ca4477095e3b259915d3db0b2acd1091e9d142706a54ba3eb2dcc54184c41",
+  "tests": {
+    "codex_python": 32,
+    "codex_node": 17,
+    "dsh_python": 19,
+    "dsh_node": 4,
+    "native_fixture_builds": 3
+  },
+  "ordinary_chatgpt_mobile": "not implemented; remote backend and directory review required",
+  "extra_spending_authorized": false,
+  "installed_plugin_modified": false
+}

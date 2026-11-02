@@ -1,0 +1,16 @@
+# Fresh macOS arm64 Python 3.11 environment tested on 2026-11-02.
+# This is a test record; Linux/Windows execution is not established.
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.68.0
+kiwisolver==1.5.1
+matplotlib==3.11.2
+numpy==2.4.6
+packaging==26.3
+pillow==12.3.0
+pyparsing==3.3.3
+python-dateutil==4.0.0
+scipy==1.17.1
+trimesh==4.12.2
+tzdata==2026.6
+vtk==9.6.1
