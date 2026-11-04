@@ -17,3 +17,13 @@
   or a GitHub release as phone support. See docs/PHONE.md.
 - Read known issues before changing requirements. Corrections may not weaken
   declared geometry checks or silently repair a reference mesh.
+
+## Portability continuation — 2026-11-03
+
+The current main branch adds scripts/setup-linux.sh and docs/LINUX_SETUP.md,
+MOVING_PROJECTS.md and PORTABILITY_VALIDATION.md. Preserve five-file revisions
+and their shared resources during migration; private model/project data stays
+outside this repository. Core, skills, UI and published tag remain unchanged.
+The source has relocated-Mac evidence; run the destination fixture smoke before
+claiming native Linux or embedded-panel operation. Keep this progress record
+current when implementation changes.

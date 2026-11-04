@@ -1,6 +1,7 @@
 # generated runs, local runtimes and caches
 output/
 runs/
+generated/
 .venv/
 .tmp-runtime/
 node_modules/

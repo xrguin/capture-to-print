@@ -47,6 +47,18 @@ private installation automatically. The launcher finds the versioned runtime
 created by setup. Set `CAPTURE_TO_PRINT_NODE` or `CAPTURE_TO_PRINT_PYTHON` to an
 explicit executable when needed; see [plugin setup](plugins/capture-to-print/README.md).
 
+## Continue on another machine — current main
+
+The current `main` branch includes a Linux x86-64 setup entry point and
+[project migration instructions](docs/MOVING_PROJECTS.md). Clone/pull `main`,
+then follow [Linux setup](docs/LINUX_SETUP.md); on Linux the explicit setup is
+`sh scripts/setup-linux.sh --smoke`. Native Linux execution still needs the
+destination smoke test. The existing `v0.4.0-alpha.1` tag is unchanged.
+
+The five-file revision format, shared rebuild resources and explicit-only ZIP
+export are already included in the Codex adapter. Private model files and project
+data transfer separately from this public source repository.
+
 ## Workflow
 
 ```mermaid

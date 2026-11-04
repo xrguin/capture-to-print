@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — 2026-11-03
+
+- Add an explicit Linux x86-64 preflight/setup wrapper for the Codex adapter.
+- Document source/runtime installation, five-file revisions with shared
+  resources, private project migration and destination smoke tests.
+- Preserve core 0.4.0, existing skills/UI/fixtures, DSH 0.2.0 and the published
+  v0.4.0-alpha.1 tag. No automatic ZIP, private project upload or new release.
+- Native Linux execution remains unverified; relocation evidence is from the
+  existing Apple Silicon Mac.
+
 ## 0.4.0-alpha.1 — 2026-11-02
 
 - First public GitHub alpha. Adds the Codex embedded panel/runtime 0.4.0 alongside
